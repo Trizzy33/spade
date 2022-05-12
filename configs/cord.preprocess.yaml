@@ -130,7 +130,7 @@ shallow-parser-info:
 toy_data: false
 toy_size: 4
 train_param:
-  accelerator: ddp
+  accelerator: none
   accumulate_grad_batches: 2
   augment_coord: true
   augment_data: true
@@ -173,8 +173,8 @@ train_param:
       lr_max: 0.0007
       num_warmup_steps: 30
   max_epochs: 10000
-  multi_gpu: true
-  n_cpus: 2
+  multi_gpu: True
+  n_cpus: 1
   optimizer_type: adam
   save_epoch_interval: 100
   skip_long: true

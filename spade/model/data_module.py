@@ -212,6 +212,9 @@ class SpadeDataModule(pl.LightningDataModule):
 
 
 def get_data(fpath, mode, cfg, tokenizer, is_json=False):
+    print(fpath)
+    print("....")
+
     if is_json:
         raw_data = [gu.load_json(fpath)]
     else:
@@ -395,8 +398,8 @@ class SpadeData(torch.utils.data.Dataset):
             image_url,
         ) = self._get_each_field_from_raw_data(data)
 
-        if self.mode == "infer":
-            (text, coord, vertical) = du.remove_blank_box(text, coord, vertical)
+       # if self.mode == "infer":
+            #(text, coord, vertical) = du.remove_blank_box(text, coord, vertical)
 
         if augment_coord:
             img = None

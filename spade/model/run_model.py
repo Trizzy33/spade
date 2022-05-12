@@ -50,7 +50,7 @@ def prepare_data_model_trainer(cfg):
     trainer = pl.Trainer(
         logger=tb_logger,
         log_every_n_steps=cfg.train_param.get("log_every_n_steps", 50),
-        gpus=torch.cuda.device_count(),
+        gpus=0,
         max_epochs=cfg.train_param.max_epochs,
         val_check_interval=cfg.train_param.val_check_interval,
         limit_train_batches=cfg.train_param.limit_train_batches,
@@ -95,5 +95,6 @@ def do_prediction(cfg, path_predict_input_json):
     data_module.path_predict_input_json = path_predict_input_json
     out = trainer.predict(model, datamodule=data_module)[0]
     path_to_save = path_predict_input_json.__str__() + ".out.json"
+    gu.write_json(r'\\home\\x\\spade\\data\\samples\\out.json', out)
     gu.write_json(path_to_save, out)
     pprint(out["pr_parse"])

@@ -33,53 +33,24 @@ model_param:
   #  examples_of_inffering_method: force_single_tail_node, force_single_tail_node_but_allow_multiple_seeds,  no_constraint
   #  examples_of_parse_gen_method: multiple_beam, single_beam
   field_representers:
-    - menu.nm
-    - sub_total.subtotal_price
-    - total.total_price
-    - void_menu.nm
-    - void_total.total_price
+    - name.cell
+    - name.age
+    - name.gender
+    - range.siunit
+    - range.convunit
+    - void_name
+    - void_range
+    
   fields:
-    - menu.cnt
-    - menu.discountprice
-    - menu.itemsubtotal
-    - menu.nm
-    - menu.price
-    - menu.sub_cnt
-    - menu.sub_nm
-    - menu.sub_price
-    - menu.unitprice
-    - menu.sub_num
-    - menu.discountprice
-    - menu.num
-    - menu.sub_discountprice
-    - menu.sub_etc
-    - menu.etc
-    - menu.vatyn
-    - menu.itemsubtotal
-    - menu.sub_unitprice
-    - sub_total.discount_price
-    - sub_total.service_price
-    - sub_total.subtotal_price
-    - sub_total.tax_price
-    - sub_total.tax_and_service
-    - sub_total.etc
-    - sub_total.othersvc_price
-    - total.total_price
-    - total.menuqty_cnt
-    - total.total_etc
-    - total.emoneyprice
-    - total.menutype_cnt
-    - total.cashprice
-    - total.changeprice
-    - total.creditcardprice
-    - void_menu.nm
-    - void_menu.cnt
-    - void_menu.price
-    - void_menu.unitprice
-    - void_total.total_price
-    - void_total.subtotal_price
-    - void_total.tax_price
-    - void_total.etc
+    - name.cell
+    - name.age
+    - name.gender
+    - range.siunit
+    - range.convunit
+    - void_name
+    - void_range
+    - range.limits
+    - range.cnt
 
   gt_parse_gen_method: single_beam
   include_second_order_relations: false
@@ -95,7 +66,7 @@ model_param:
   n_char_unit: 5
   n_dist_unit: 120
   n_relation_type: 2
-  no_rel_attention: false
+  no_rel_attention: True
   omit_angle_cal: false
   parse_gen_method: single_beam
   precision: 16
@@ -119,7 +90,7 @@ model_param:
 toy_data: false
 toy_size: 4
 train_param:
-  accelerator: ddp
+  accelerator: none
   accumulate_grad_batches: 2
   augment_coord: true
   augment_data: true
@@ -161,8 +132,8 @@ train_param:
       lr_max: 0.0007
       num_warmup_steps: 30
   max_epochs: 10000
-  multi_gpu: true
-  n_cpus: 4
+  multi_gpu: True
+  n_cpus: 1
   optimizer_type: adam
   save_epoch_interval: 500
   skip_long: true

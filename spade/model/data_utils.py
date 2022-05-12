@@ -1100,6 +1100,8 @@ def update_label_sub(l_tok1, rel_idx, r_pnt, c_pnt, label_sub1, type):
 
     # label
     # remove arrow to the next boxes before augment label.
+    print(label_sub1[r_pnt_header] == rel_idx, "================")
+    return
     next_box_col_idxs = np.where(label_sub1[r_pnt_header] == rel_idx)[0]
     if next_box_col_idxs.size > 0:
         # assert next_box_col_idxs.size == 1

@@ -120,7 +120,7 @@ train_param:
       lr_max: 0.0004
       num_warmup_steps: 30
   max_epochs: 5000
-  n_cpus: 0
+  n_cpus: 1
   optimizer_type: adam
   save_epoch_interval: 100
   skip_long: false
